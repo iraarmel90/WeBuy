@@ -1,0 +1,430 @@
+{
+    "index.html": "Added link to styles.css for consistent styling across pages.",
+    "accessories.html": "Added link to styles.css for consistent styling across pages.",
+    "laptops.html": "Added link to styles.css for consistent styling across pages.",
+    "smartphones.html": "Added link to styles.css for consistent styling across pages.",
+    "tablets.html": "Added link to styles.css for consistent styling across pages.",
+    "contact.html": "Added link to styles.css for consistent styling across pages."
+}
+
+/* ========================================
+   PROFESSIONAL WEBUY E-COMMERCE STYLES
+   ======================================== */
+
+/* Root Variables */
+:root {
+    --primary-color: #1e3a8a;
+    --secondary-color: #1f2937;
+    --accent-color: #0369a1;
+    --success-color: #059669;
+    --light-bg: #f9fafb;
+    --white: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-light: #9ca3af;
+    --border-color: #e5e7eb;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --transition: all 0.2s ease-in-out;
+}
+
+/* ========================================
+   GLOBAL STYLES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+/* ========================================
+   HEADER & NAVIGATION
+   ======================================== */
+
+header {
+    background-color: var(--white);
+    color: var(--text-primary);
+    padding: 0;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    pointer-events: none;
+}
+
+nav {
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 16px 24px;
+    display: inline-block;
+    position: relative;
+    transition: var(--transition);
+    letter-spacing: 0px;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+    transform: translateX(-50%);
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+    transform: none;
+}
+
+nav ul li a:hover::before {
+    width: 70%;
+}
+
+/* ========================================
+   MAIN CONTENT
+   ======================================== */
+
+main {
+    padding: 50px 30px;
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 40px 0 20px 0;
+    text-align: center;
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 12px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 1px;
+}
+
+main > p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 12px;
+    line-height: 1.8;
+}
+
+main > p:first-of-type {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* ========================================
+   PRODUCTS SECTION
+   ======================================== */
+
+.products-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin: 40px 0;
+    list-style: none;
+}
+
+.product-item {
+    background: var(--white);
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    width: 280px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--accent-color);
+    transform: scaleX(0);
+    transition: var(--transition);
+    transform-origin: left;
+}
+
+.product-item:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+}
+
+.product-item:hover::before {
+    transform: scaleX(1);
+}
+
+.product-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px;
+    display: block;
+    transition: var(--transition);
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-item a:hover {
+    color: var(--accent-color);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.product-item figcaption {
+    font-size: 14px;
+    color: var(--text-secondary);
+    padding: 0 20px 15px;
+}
+
+.product-item p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 0 20px 20px;
+    line-height: 1.7;
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* ========================================
+   LISTS & CONTENT
+   ======================================== */
+
+main ul {
+    list-style: none;
+    padding: 0;
+}
+
+main ul li {
+    padding: 12px 0;
+    padding-left: 30px;
+    position: relative;
+    color: var(--text-secondary);
+    font-size: 15px;
+}
+
+main ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 20px;
+}
+
+main a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+main a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
+    font-weight: 500;
+    letter-spacing: 0px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    main {
+        padding: 30px 20px;
+    }
+
+    .products-list {
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .product-item {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    nav ul {
+        gap: 0;
+    }
+
+    nav ul li a {
+        padding: 12px 18px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 120px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    .products-list {
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-item {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li a {
+        padding: 10px 20px;
+    }
+
+    nav ul li a::before {
+        display: none;
+    }
+
+    nav ul li a:hover::before {
+        display: none;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 12px 10px;
+    }
+}

@@ -1,4 +1,5 @@
 ### Useful information about the website
+Temporary website's name: https://iraarmel90.github.io/WeBuy/
 
 ## Whatsapp code to insert in the Webpage
 
@@ -33,3 +34,7 @@ e.g:
 <a href="https://wa.me/25761234567?text=Hello%20check%20out%20this%20image:%20https://brst-company.com/index.html#productImage" target="_blank">
   Share on WhatsApp
 </a>
+
+## How to receive information filled in Contact HTML form
+
+Normally, you need to set up a server using PHP, nodejs or python. But it is also possible to avoid managing a server and use Googe form
