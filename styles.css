@@ -281,6 +281,10 @@ main > p:first-of-type {
     align-items: center;
 }
 
+.product-item .nowrap {
+    white-space: nowrap;
+}
+
 /* ========================================
    LISTS & CONTENT
    ======================================== */
