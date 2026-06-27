@@ -37,4 +37,12 @@ e.g:
 
 ## How to receive information filled in Contact HTML form
 
-Normally, you need to set up a server using PHP, nodejs or python. But it is also possible to avoid managing a server and use Googe form
+Normally, you need to set up a server using PHP, nodejs or python. But it is also possible to avoid managing a server and use Google form.
+
+## To be done in order to put accurate information in the website
+1. Find the accurate name and specificities of differents laptops.
+   For example: Lenovo laptops are in different models: Lenovo ThinkPad, Lenovo ThinkBook, Lenovo V series, Lenovo Yoga and so on. Or for HP laptop, HP EliteBook, HP Probook, .... Also, collect the specifities of each model: 10th Gen, 8gb Ram, 256 gb Ram, 14 inch,...
+  Action: do it to HP, Lenovo and Dell Laptops and continue to build the webpage with accurate information.
+2. Learn the JavaScript Code of "Add Cart" button  
+3. Improve the styling: for example, make a line of each group of items and be able to scroll from rigth to left
+4. Improve the index HTML page to put
