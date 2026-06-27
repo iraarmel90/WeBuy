@@ -15,14 +15,14 @@ Syntax: https://wa.me/<PHONE_NUMBER>?text=<PRE-FILLED_MESSAGE>
 
 Here is the 3 steps to follow:
 1. Give an ID to the image
-   As ID is unique in the whole website, you will assign an ID to each picture that you will use use to create
+   As ID is unique in the whole website, you will assign an ID to each picture that you will use to create
    e.g: <img id="productImage" src="images/product.jpg" alt="Our Product">
 2. Add the ID to the website page link as an extension:
    e.g: <a href="https://brst-company.com/index.html#productImage">
   Share this image
     </a>
      In the above example, the image is located in the website "www.brst-company.com" under the page "index.html". Notice that there is a hashtag before mentioning the id name. When clicking on the link, the user or the seller will be directed to the webpage and automatically scrolled to the location of the image
-3. Make an image clickable
+1. Make an image clickable
    To achieve that, we will have to put the <img> tag inside <a> tag
    <a href="https://brst-company.com/index.html#productImage">
   <img id="productImage" src="images/product.jpg" alt="Our Product">

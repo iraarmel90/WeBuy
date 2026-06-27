@@ -134,6 +134,15 @@ nav ul li a:hover::before {
 /* ========================================
    MAIN CONTENT
    ======================================== */
+#pageInPreparation {
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 2em;
+}
+
+.pageInPreparation {
+    display: none
+}
 
 main {
     padding: 50px 30px;
