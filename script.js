@@ -1,10 +1,44 @@
 // Informing Visitor to visit the Website later
 
-body.document.addEventListener("DOMContentLoaded", function() {
+/* document.addEventListener("DOMContentLoaded", function() {
     const message = "We are currently updating our website. Please visit us later for the best experience.";
     alert(message);
 });
+ */
 
+// Horizontal product carousel
+
+document.addEventListener("DOMContentLoaded", () => {
+    const scrollLists = document.querySelectorAll(".horizontal-list");
+
+    scrollLists.forEach((list) => {
+        list.scrollLeft = list.scrollWidth;
+
+        const moveCarousel = () => {
+            const maxScroll = list.scrollWidth - list.clientWidth;
+            if (list.scrollLeft <= 0) {
+                list.scrollTo({ left: maxScroll, behavior: "smooth" });
+            } else {
+                list.scrollBy({ left: -320, behavior: "smooth" });
+            }
+        };
+
+        window.setInterval(moveCarousel, 4000);
+    });
+
+    document.querySelectorAll(".scroll-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+            const targetId = button.dataset.scrollTarget;
+            const targetList = document.getElementById(targetId);
+            const container = targetList?.closest(".horizontal-list");
+
+            if (!container) return;
+
+            const direction = button.classList.contains("scroll-right") ? 320 : -320;
+            container.scrollBy({ left: direction, behavior: "smooth" });
+        });
+    });
+});
 
 // Cart functionality
 
@@ -68,4 +102,12 @@ window.onclick = function(event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
+}
+
+function loadPage(page) {
+    fetch(page)
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("content").innerHTML = data;
+    })
 }
