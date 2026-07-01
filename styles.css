@@ -310,6 +310,13 @@ main .home-products-list .product-item p {
     min-width: max-content;
 }
 
+/* div li a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+    background-color: var(--success-color);
+} */
+
 .product-item {
     background: var(--white);
     padding: 0;
