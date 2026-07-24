@@ -10,10 +10,21 @@
 
 const hamburger = document.querySelector(".hamburger");
 const navLinks = document.querySelector(".nav-links");
+//making sure the nav links are toggled only when the hamburger is clicked and not when clicking outside of it
+if (hamburger && navLinks) {
+    hamburger.addEventListener("click", (event) => {
+        event.stopPropagation();
+        navLinks.classList.toggle("active");
+    });
 
-hamburger.addEventListener("click", ()=> {
- navLinks.classList.toggle("active")
-})
+    window.addEventListener("click", (event) => {
+        const clickedInsideMenu = navLinks.contains(event.target) || hamburger.contains(event.target);
+
+        if (window.innerWidth <= 768 && navLinks.classList.contains("active") && !clickedInsideMenu) {
+            navLinks.classList.remove("active");
+        }
+    });
+}
 
 // Horizontal product carousel
 
@@ -110,6 +121,11 @@ window.onclick = function(event) {
     const modal = document.getElementById("product-modal");
     if (event.target === modal) {
         modal.style.display = "none";
+    }
+
+    const nav = document.querySelector(".navbar");
+    if (e.target === nav) {
+        nav.style.display = "none";
     }
 }
 
