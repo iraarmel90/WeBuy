@@ -6,10 +6,22 @@
 });
  */
 
-// Navigation bar
+/**
+ * ! General JavaScriptCode for the Website Starts here
+ **/
 
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
+
+
+
+const hamburger = document.querySelector(".hamburger"); // Navigation bar
+const navLinks = document.querySelector(".nav-links"); // Navigation bar
+const phoneCasesEl = document.getElementById("phone-cases"); // Accessories Page
+const variousAccessoriesEl = document.getElementById("various-accessories"); // Accessories Page
+
+
+/**
+ * ! General JavaScriptCode for the Website Ends here
+ **/
 //making sure the nav links are toggled only when the hamburger is clicked and not when clicking outside of it
 if (hamburger && navLinks) {
     hamburger.addEventListener("click", (event) => {
@@ -62,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Cart functionality
 
-const cart = [];
+let cart = [];
 function addToCart(name, price) {
     const product = 
     { 
@@ -136,3 +148,43 @@ function loadPage(page) {
         document.getElementById("content").innerHTML = data;
     })
 }
+
+// Javascript Code for Accessories Page
+
+function displayPhoneCases() {
+    phoneCases.forEach((phoneCase)=> {
+        phoneCasesEl.innerHTML += `
+        <li class="product-item" onclick="openModal('${phoneCase.name}', '${phoneCase.descr}', '${phoneCase.imgSrc}', ${phoneCase.price}, 'https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${phoneCase.name}')">
+            <img src="${phoneCase.imgSrc}" alt="${phoneCase.name}" width="3024" height="3024">
+            <h3>${phoneCase.name}</h3>
+            <div>Price: <small>BIF </small>${phoneCase.price}</div>
+            <div>Availability: ${phoneCase.inStock > 0 ? "In Stock" : "Out of Stock"}</div>
+            <div>${phoneCase.descr}</div>
+            <a href="https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${phoneCase.name}" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </li> 
+        `
+    })
+}
+
+function displayVariousAccessories() {
+    variousAccessories.forEach((accessory)=> {
+        variousAccessoriesEl.innerHTML += `
+        <li class="product-item" onclick="openModal('${accessory.name}', '${accessory.descr}', '${accessory.imgSrc}', ${accessory.price}, 'https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${accessory.name}')">
+            <img src="${accessory.imgSrc}" alt="${accessory.name}" width="3024" height="3024">
+            <h3>${accessory.name}</h3>
+            <div>Price: <small>BIF </small>${accessory.price}</div>
+            <div>Availability: ${accessory.inStock > 0 ? "In Stock" : "Out of Stock"}</div>
+            <div>${accessory.descr}</div>
+            <a href="https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${accessory.name}" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </li> 
+        `
+    })
+
+}
+
+/* displayPhoneCases() */
+displayVariousAccessories()
+
+// next step: 1. Put the increment(+) and decrement (-) buttons to add quantity.
+// 2. Add a "Add to Cart" button to add the product to the cart and update the total price.
+

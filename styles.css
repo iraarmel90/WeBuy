@@ -160,7 +160,7 @@ nav ul li a:hover::before {
    ======================================== */
 
    /* page in preparation -- Start */
-#pageInPreparation {
+/* #pageInPreparation {
     text-align: center;
     font-size: 1.2em;
     margin-top: 2em;
@@ -168,7 +168,7 @@ nav ul li a:hover::before {
 
 .pageInPreparation {
     display: none
-}
+} */
 /* page in preparation -- End */
 
 main {

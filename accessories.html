@@ -7,10 +7,10 @@
     <title>Accessories - Burundi Online Market</title>
 </head>
 <body>
-    <div id="pageInPreparation">
+    <!-- <div id="pageInPreparation">
         <p>This page is still under development. Please check back later.</p>
     </div>
-    <div class="pageInPreparation">  
+    <div class="pageInPreparation">  --> 
     <header>
         <!-- Navigation bar -->
         <nav class="navbar">
@@ -34,27 +34,57 @@
         <main>
             <h1>Accessories</h1>
             <p>Enhance your devices with our range of accessories, including cases, chargers and so forth</p>
-            <h2>Phone Cases</h2>
-            <p>Protect your smartphone with our stylish and durable phone cases. Explore our collection of phone cases for various smartphone models.</p>
-            <ul class="products-list">
-                <li class="product-item"><img src="./images/Accessories/Phone Cases/grysell-3024-3024.jpg" alt="Phone Case 1" width="3024" height="3024"><figcaption>Phone Case 1</figcaption></li>
-                <li class="product-item"><img src="./images/Accessories/Phone Cases/grysell-3024-3024.jpg" alt="Phone Case 2" width="3024" height="3024"><figcaption>Phone Case 2</figcaption></li>
-                <li class="product-item"><img src="./images/Accessories/Phone Cases/grysell-3024-3024.jpg" alt="Phone Case 3" width="3024" height="3024"><figcaption>Phone Case 3</figcaption></li>
-                <li class="product-item"><img src="./images/Accessories/Phone Cases/grysell-3024-3024.jpg" alt="Phone Case 4" width="3024" height="3024"><figcaption>Phone Case 4</figcaption></li>
-            </ul>
-            <h2>Chargers</h2>
+            <!-- <h2>Phone Cases</h2>
+            <p>Protect your smartphone with our stylish and durable phone cases. Explore our collection of phone cases for various smartphone models.</p> -->
+            <!-- <div class="scroll-controls">
+                <button type="button" class="scroll-btn scroll-left" data-scroll-target="phone-cases" aria-label="Scroll left">&#8592;</button>
+                <button type="button" class="scroll-btn scroll-right" data-scroll-target="phone-cases" aria-label="Scroll right">&#8594;</button>
+            </div> -->
+            <!-- <div class="horizontal-list">
+                <ul class="products-list" id="phone-cases">
+                </ul>
+            </div> -->
+            <!-- <h2>Chargers</h2>
             <p>Keep your devices powered up with our high-quality chargers. Explore our collection of chargers for various devices.</p>
-            <ul class="products-list">
+            <ul class="products-list" id="chargers">
                 <li class="product-item"><img src="./images/Accessories/Chargers/homemade-4032-3024.jpg" alt="Charger 1" width="4032" height="3024"><figcaption>Charger 1</figcaption></li>
                 <li class="product-item"><img src="./images/Accessories/Chargers/homemade-4032-3024.jpg" alt="Charger 2" width="4032" height="3024"><figcaption>Charger 2</figcaption></li>
                 <li class="product-item"><img src="./images/Accessories/Chargers/homemade-4032-3024.jpg" alt="Charger 3" width="4032" height="3024"><figcaption>Charger 3</figcaption></li>
                 <li class="product-item"><img src="./images/Accessories/Chargers/homemade-4032-3024.jpg" alt="Charger 4" width="4032" height="3024"><figcaption>Charger 4</figcaption></li>
-            </ul>
+            </ul> -->
+            <h2>Various Accessories</h2>
+            <p>Discover a variety of accessories to complement your devices. From mouse pads to hard drive covers, we have everything you need.</p>
+            <div class="scroll-controls">
+                <button type="button" class="scroll-btn scroll-left" data-scroll-target="various-accessories" aria-label="Scroll left">&#8592;</button>
+                <button type="button" class="scroll-btn scroll-right" data-scroll-target="various-accessories" aria-label="Scroll right">&#8594;</button>
+            </div>
+            <div class="horizontal-list">
+                <ul class="products-list" id="various-accessories">
+                </ul>
+            </div>
             <p>If you did not find what you were looking for, please fill our <a href="contact.html">Contact Us</a> page.</p>
         </main>
+
+         <!-- Modal for product details -->
+            <div id="product-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="modal-title"></h2>
+                    <!-- Image -->
+                    <img id="modal-image" class="modal-image" alt="Product Image" width="400" height="400" >
+                    <p id="modal-description"></p>  
+                    <p id="modal-price"></p>
+                    <!-- WhatsApp Link -->
+                        <a id="modal-whatsapp-link" class="modal-whatsapp-link" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+                </div>
+            </div>
+        <!--End of Modal -->
+
         <footer>
             <p>&copy; 2026 Burundi Online Market. All rights reserved.</p>
         </footer>
-    </div>
+    <!-- </div> -->
+     <script src="accessories.js"></script>
+     <script src="script.js"></script>
 </body>
 </html>

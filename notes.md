@@ -46,3 +46,12 @@ Normally, you need to set up a server using PHP, nodejs or python. But it is als
 2. Learn the JavaScript Code of "Add Cart" button  
 3. Improve the styling: for example, make a line of each group of items and be able to scroll from rigth to left
 4. Improve the index HTML page to put
+
+
+## Temporary Code
+
+Accessories Webpage:
+
+<!-- <li class="product-item"><img src="./images/Accessories/Phone-Cases/grysell-3024-3024.jpg" alt="Phone Case 2" width="3024" height="3024"><figcaption>Phone Case 2</figcaption></li>
+                <li class="product-item"><img src="./images/Accessories/Phone-Cases/grysell-3024-3024.jpg" alt="Phone Case 3" width="3024" height="3024"><figcaption>Phone Case 3</figcaption></li>
+                <li class="product-item"><img src="./images/Accessories/Phone-Cases/grysell-3024-3024.jpg" alt="Phone Case 4" width="3024" height="3024"><figcaption>Phone Case 4</figcaption></li> -->
