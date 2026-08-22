@@ -1,6 +1,6 @@
 // ADD ALL YOUR PRODUCTS HERE AND RENAME IT "productItems.js", meaning all the products you want to sell on your website, you can add more products by following the same structure as the existing ones. Each product should have a unique id, name, customer, description, price, inStock quantity, and an image source.
 
-const phoneCases = [
+/* const phoneCases = [
     {
         id: 1,
         name: "phoneCase1",
@@ -47,7 +47,7 @@ const phoneCases = [
         imgSrc: "./images/Accessories/Phone-Cases/4-RedmiCase -- Redmi-A5.jpg"
     },
 ]
-
+ */
 const variousAccessories = [
     {
         id: 2000,
