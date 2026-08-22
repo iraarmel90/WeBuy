@@ -55,3 +55,15 @@ Accessories Webpage:
 <!-- <li class="product-item"><img src="./images/Accessories/Phone-Cases/grysell-3024-3024.jpg" alt="Phone Case 2" width="3024" height="3024"><figcaption>Phone Case 2</figcaption></li>
                 <li class="product-item"><img src="./images/Accessories/Phone-Cases/grysell-3024-3024.jpg" alt="Phone Case 3" width="3024" height="3024"><figcaption>Phone Case 3</figcaption></li>
                 <li class="product-item"><img src="./images/Accessories/Phone-Cases/grysell-3024-3024.jpg" alt="Phone Case 4" width="3024" height="3024"><figcaption>Phone Case 4</figcaption></li> -->
+
+## Download image from the website:
+- unsplash.com
+- pexels.com
+
+## Find icons on this website:
+- icons.getbookstrap.com
+
+## Viewing some tips in the video "Build a Shopping Cart with JavaScript -- Project Tutorial"
+
+Stopped at 44:28 min
+

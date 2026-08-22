@@ -17,6 +17,7 @@ const hamburger = document.querySelector(".hamburger"); // Navigation bar
 const navLinks = document.querySelector(".nav-links"); // Navigation bar
 const phoneCasesEl = document.getElementById("phone-cases"); // Accessories Page
 const variousAccessoriesEl = document.getElementById("various-accessories"); // Accessories Page
+const shoppingBagEl = document.getElementById("shopping-bag");
 
 
 /**
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const scrollLists = document.querySelectorAll(".horizontal-list");
 
     scrollLists.forEach((list) => {
-        list.scrollLeft = list.scrollWidth;
+        list.scrollLeft = list.scrollWidth - list.clientWidth;
 
         const moveCarousel = () => {
             const maxScroll = list.scrollWidth - list.clientWidth;
@@ -72,30 +73,233 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// Cart functionality
+/**
+ * ! Displays phone cases and various accessories on the page
+ */
+function displayPhoneCases() {
+    if(!phoneCasesEl) return; // Check if the element exists before proceeding
+    phoneCases.forEach((phoneCase)=> {
+        phoneCasesEl.innerHTML += `
+        <li class="product-item" onclick="openModal('${phoneCase.name}', '${phoneCase.descr}', '${phoneCase.imgSrc}', ${phoneCase.price}, 'https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${phoneCase.name}')">
+            <img src="${phoneCase.imgSrc}" alt="${phoneCase.name}" width="1000" height="1000">
+            <h3>${phoneCase.name}</h3>
+            <div>Price: <small>BIF </small>${phoneCase.price}</div>
+            <div>Availability: ${phoneCase.inStock > 0 ? "In Stock" : "Out of Stock"}</div>
+            <div>${phoneCase.descr}</div>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${phoneCase.id});">
+              Add to Cart
+            </button>
+            <a href="https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${phoneCase.name}" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </li> 
+        `
+    })
+}
 
-let cart = [];
-function addToCart(name, price) {
-    const product = 
-    { 
-        name: name,
-        price: price };
-    cart.push(product);
+displayPhoneCases() 
+
+function displayVariousAccessories() {
+    if(!variousAccessoriesEl) return; // Check if the element exists before proceeding
+    variousAccessories.forEach((accessory)=> {
+        variousAccessoriesEl.innerHTML += `
+        <li class="product-item" onclick="openModal('${accessory.name}', '${accessory.descr}', '${accessory.imgSrc}', ${accessory.price}, 'https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${accessory.name}')">
+            <img src="${accessory.imgSrc}" alt="${accessory.name}" width="1000" height="1000">
+            <h3>${accessory.name}</h3>
+            <div>Price: <small>BIF </small>${accessory.price}</div>
+            <div>Availability: ${accessory.inStock > 0 ? "In Stock" : "Out of Stock"}</div>
+            <div>${accessory.descr}</div>
+            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${accessory.id});">
+              Add to Cart
+            </button>
+            <a href="https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${accessory.name}" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+        </li> 
+        `
+    })
+
+}
+
+ 
+displayVariousAccessories()
+
+/**
+ * ! CART FUNCTIONALITY
+ */
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+displayCart();
+displayTotalItemsInCart();
+
+// check this out: https://stackoverflow.com/questions/70336348/how-to-add-an-item-to-cart-and-store-it-in-local-storage-using-javascript
+const checkoutButton = document.getElementById("checkout-btn");
+if (checkoutButton) {
+    checkoutButton.addEventListener("click", sendOrderViaWhatsApp);
+}
+
+function findProductId(id) {
+    return [...phoneCases, ...variousAccessories].find(product => product.id === id); // ADD ALL ARRAY CONTAINING PRODUCTS HERE, meaning all the products you want to sell on your website, you can add more products by following the same structure as the existing ones. Each product should have a unique id, name, customer, description, price, inStock quantity, and an image source.
+    
+}
+
+function addToCart(productId) {
+    const product = findProductId(productId);
+
+    if (!product) return;
+
+    if (product.inStock <= 0) {
+        alert("Sorry, this product is out of stock.");
+        return;
+    }
+
+    if(cart.some(item => item.id === productId)) {
+        alert("This product is already in the cart. Select other items you would like to buy.");
+        return;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            imgSrc: product.imgSrc,
+            inStock: product.inStock,
+            quantity: 1
+        });
+        localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
     displayCart();
+    displayTotalItemsInCart();
 }
 
 function displayCart() {
-    const cartList = document.getElementById("cart-list");
-    cartList.innerHTML = "";
-    const totalElement = document.getElementById("total");
+    const cartListEl = document.getElementById("cart-list");
+    if (!cartListEl) return;
+
+    cartListEl.innerHTML = "";
+
+    const totalEl = document.getElementById("total");
     let total = 0;
+
+
     for (const item of cart) {
+        const itemSubtotal = item.price * item.quantity;
         const li = document.createElement("li");
-        li.textContent = `${item.name} - $${item.price.toFixed(2)}`;
-        cartList.appendChild(li);
-        total += item.price;
+        li.className = "cart-item"; // Add a class for styling li.classList.add("cart-item"); Search whether the two methods are the same or not
+        li.innerHTML = `
+            <img src="${item.imgSrc}" alt="${item.name}" width="100" height="100">
+            <div class="cart-item-info">
+                <h3>${item.name}</h3>
+                <p>Price: BIF ${item.price.toFixed(2)}</p>
+                <div class="quantity-controls">
+                    <button onclick="decrementQuantity('${item.id}')">−</button>
+                    <span class="quantity">${item.quantity}</span>
+                    <button onclick="incrementQuantity('${item.id}')">+</button>
+                </div>
+            </div>
+            <div class="item-total">
+                <p>Subtotal: BIF <span class="item-subtotal">${itemSubtotal.toFixed(2)}</span></p>
+                <button onclick="removeFromCart('${item.id}')" class="remove-btn">Remove</button>
+            </div>
+        `;
+        cartListEl.appendChild(li);
+        total += itemSubtotal;
     }
-    totalElement.textContent = total.toFixed(2);
+    if (totalEl) totalEl.textContent = total.toFixed(2);
+    displayTotalItemsInCart();
+}
+
+
+function incrementQuantity(productId) {
+    const item = cart.find(item => String(item.id) === String(productId));
+    if (item) {
+
+        const product = findProductId(item.id);
+        if (product && item.quantity >= product.inStock) {
+            return;
+        } else {
+            item.quantity ++;
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    }
+}
+
+function decrementQuantity(productId) {
+    const item = cart.find(item => String(item.id) === String(productId));
+    if (item && item.quantity > 1) {
+        item.quantity--;
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        displayCart();
+    }
+}
+
+function removeFromCart(productId) {
+    cart = cart.filter(item => String(item.id) !== String(productId));
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    displayCart();
+}
+
+/**
+ * ! Total items in cart functionality
+ */
+function displayTotalItemsInCart() {
+    const shoppingBagEl = document.getElementById("shopping-bag");
+    const totalItemsEls = getTotalItemsEls();
+
+    if (!totalItemsEls.length && shoppingBagEl) {
+        const link = document.createElement("a");
+        link.href = "cart.html";
+        link.innerHTML = `
+            <img src="images/Shopping-Cart/shopping-cart.png" alt="cart">
+            <div id="total-items-in-cart" class="total-items-in-cart">0</div>
+        `;
+        shoppingBagEl.appendChild(link);
+    }
+
+    updateCartIcon();
+}
+
+
+function updateCartIcon() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const totalItemsEls = getTotalItemsEls();
+
+    totalItemsEls.forEach((totalItemsEl) => {
+        totalItemsEl.textContent = totalItems;
+    });
+}
+
+function getTotalItemsEls() {
+    return document.querySelectorAll("#total-items-in-cart, .total-items-in-cart");
+}
+
+// Check this out: https://stackoverflow.com/questions/70336348/how-to-add-an-item-to-cart-and-store-it-in-local-storage-using-javascript
+
+function sendOrderViaWhatsApp() {
+    if (!cart.length) {
+        alert("Your cart is empty.");
+        return;
+    }
+
+    const orderLines = cart.map((item) => {
+        const subtotal = item.price * item.quantity;
+        return `- ${item.name} x${item.quantity}: BIF ${subtotal.toFixed(2)}`;
+    });
+    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    const message = [
+        "Hello, I would like to place this order:",
+        "",
+        ...orderLines,
+        "",
+        `Total: BIF ${total.toFixed(2)}`,
+        "Please confirm availability and delivery details."
+    ].join("\\n");
+    const whatsappNumber = "25767186158";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 }
 
 // Go deeper with ".createElement" and ".appendChild" to dynamically add products to the cart list and update the total price.
@@ -129,17 +333,17 @@ function closeModal() {
 }
 
 /* Close when clicking outside of the modal */
-window.onclick = function(event) {
+window.addEventListener("click", (event) =>{
     const modal = document.getElementById("product-modal");
     if (event.target === modal) {
         modal.style.display = "none";
     }
-
-    const nav = document.querySelector(".navbar");
-    if (e.target === nav) {
+    //  no need of the below code
+    /* const nav = document.querySelector(".navbar");
+    if (event.target === nav) {
         nav.style.display = "none";
-    }
-}
+    } */
+});
 
 function loadPage(page) {
     fetch(page)
@@ -149,42 +353,9 @@ function loadPage(page) {
     })
 }
 
-// Javascript Code for Accessories Page
 
-function displayPhoneCases() {
-    phoneCases.forEach((phoneCase)=> {
-        phoneCasesEl.innerHTML += `
-        <li class="product-item" onclick="openModal('${phoneCase.name}', '${phoneCase.descr}', '${phoneCase.imgSrc}', ${phoneCase.price}, 'https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${phoneCase.name}')">
-            <img src="${phoneCase.imgSrc}" alt="${phoneCase.name}" width="3024" height="3024">
-            <h3>${phoneCase.name}</h3>
-            <div>Price: <small>BIF </small>${phoneCase.price}</div>
-            <div>Availability: ${phoneCase.inStock > 0 ? "In Stock" : "Out of Stock"}</div>
-            <div>${phoneCase.descr}</div>
-            <a href="https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${phoneCase.name}" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
-        </li> 
-        `
-    })
-}
 
-function displayVariousAccessories() {
-    variousAccessories.forEach((accessory)=> {
-        variousAccessoriesEl.innerHTML += `
-        <li class="product-item" onclick="openModal('${accessory.name}', '${accessory.descr}', '${accessory.imgSrc}', ${accessory.price}, 'https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${accessory.name}')">
-            <img src="${accessory.imgSrc}" alt="${accessory.name}" width="3024" height="3024">
-            <h3>${accessory.name}</h3>
-            <div>Price: <small>BIF </small>${accessory.price}</div>
-            <div>Availability: ${accessory.inStock > 0 ? "In Stock" : "Out of Stock"}</div>
-            <div>${accessory.descr}</div>
-            <a href="https://wa.me/25767186158?text=Hello%20give%20me%20more%20information%20about%20this%20product:%20https://burundionlinemarket.com/accessories.html%23${accessory.name}" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
-        </li> 
-        `
-    })
 
-}
-
-/* displayPhoneCases() */
-displayVariousAccessories()
-
-// next step: 1. Put the increment(+) and decrement (-) buttons to add quantity.
-// 2. Add a "Add to Cart" button to add the product to the cart and update the total price.
+// next step: 1. Find out how to order items via WhatsApp and integrate it into the website, allowing users to place orders directly through WhatsApp. 2. Implement a feature that allows users to add products to their cart from different sections of the website, such as the laptop and smartphone pages, and have those items reflected in the cart.
+//3. Extent the principle to other pages of the website, such as the laptop and Smartphone pages, to allow users to add products to the cart from different sections of the site.
 

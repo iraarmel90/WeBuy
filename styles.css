@@ -101,7 +101,84 @@ header::after {
     margin: 4px 0;
 }
 
+.shopping-bag { /* learn how to place the cart at the right of the page */
+  padding: 10px 5px;
+  position: relative;
+  margin-left: auto;
+}
 
+.shopping-bag a {
+    display:flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.shopping-bag a img {
+    width: 40px;
+    height: 40px;
+    left: 0;
+    right: 5px;
+    margin: auto 0;
+}
+
+ .shopping-bag .total-items-in-cart {
+    margin-left: 20px;
+    padding: 5px;
+    background-color: papayawhip;
+    border-radius: 5px;
+    position: absolute;
+    font-size: 12px;
+    top: 1px;
+    
+ }
+
+.add-to-cart {
+    background-color: rgba(43, 110, 226, 0.81);
+}
+
+.add-to-cart img { /* find out how to center the image */
+    width: 32px;
+    height: 32px;
+    padding: 5px auto;
+}
+
+.cart-item {
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.quantity-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.quantity-controls button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.item-total {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.remove-btn {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 10px 0 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
 nav {
     padding: 20px 0;
@@ -308,7 +385,7 @@ main .home-products-list .product-item p {
 
 .horizontal-list {
     display: grid;
-    grid-template-rows: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     align-content: center;
     overflow-x: auto;
     overflow-y: hidden;
@@ -563,10 +640,10 @@ main a:hover {
 
 /* Cart Section */
 
-.cart {
+/* .cart {
     display: none
 }
-
+ */
 /* ====================================
 CONTACT US
 =======================================*/

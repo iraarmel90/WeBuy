@@ -1,6 +1,8 @@
+// ADD ALL YOUR PRODUCTS HERE AND RENAME IT "productItems.js", meaning all the products you want to sell on your website, you can add more products by following the same structure as the existing ones. Each product should have a unique id, name, customer, description, price, inStock quantity, and an image source.
+
 const phoneCases = [
     {
-        id: 1,
+        id: 1000,
         name: "phoneCase1",
         customer: "customer1",
         descr: "kaiinakakkmnak",
@@ -9,7 +11,7 @@ const phoneCases = [
         imgSrc: "./images/Accessories/Phone-Cases/1-IphoneCase-Silicone-Case-Iphone 15.jpg"
     },
     {
-        id: 2,
+        id: 1001,
         name: "phoneCase2",
         customer: "customer2",
         descr: "kaiinakakkmnak-jjsjs",
@@ -18,7 +20,7 @@ const phoneCases = [
         imgSrc: "./images/Accessories/Phone-Cases/2-SamsungCase-Silicone-Case -- SamsungGalaxy A15 5G CAse.jpg"
     },
     {
-        id: 3,
+        id: 1002,
         name: "phoneCase3",
         customer: "customer3",
         descr: "kaiinakakkmnak-kslirms",
@@ -27,7 +29,7 @@ const phoneCases = [
         imgSrc: "./images/Accessories/Phone-Cases/3-GooglePixelCase--GooglePixel3.jpg"
     },
     {
-        id: 4,
+        id: 1003,
         name: "phoneCase4",
         customer: "customer4",
         descr: "kaiinakakkmnak-sjnuens",
@@ -36,7 +38,7 @@ const phoneCases = [
         imgSrc: "./images/Accessories/Phone-Cases/3-GooglePixelCase.jpg"
     },
     {
-        id: 5,
+        id: 1004,
         name: "phoneCase5",
         customer: "customer5",
         descr: "kaiinakakkmnak-hsneunahja",
@@ -48,7 +50,7 @@ const phoneCases = [
 
 const variousAccessories = [
     {
-        id: 1,
+        id: 2000,
         name: "Mouse",
         customer: "customer1",
         descr: "Wireless Mouse for Computers and Laptops, chargeable with ergonomic design and adjustable DPI settings.",
@@ -58,7 +60,7 @@ const variousAccessories = [
     },
 
     {
-        id: 2,
+        id: 2001,
         name: "Hard Drive 1TB",
         customer: "customer2",
         descr: "Hard Drive for Data Storage and Backupof 1 TB, SATA SSD.",
@@ -68,7 +70,7 @@ const variousAccessories = [
     },
 
     {
-        id: 3,
+        id: 2003,
         name: "Hard Drive 512GB",
         customer: "customer3",
         descr: "Hard Drive for Data Storage and Backup of 512 GB, SATA SSD.",
@@ -78,7 +80,7 @@ const variousAccessories = [
     },
 
     {
-        id: 4,
+        id: 2004,
         name: "Hard Drive Cover",
         customer: "customer4",
         descr: "Hard Drive Cover for Data Storage and Backup, made of durable materials to protect your hard drive from dust, scratches, and impacts.",
@@ -88,7 +90,7 @@ const variousAccessories = [
     },
 
     {
-        id: 5,
+        id: 2005,
         name: "Hard Driver 256GB",
         customer: "customer5",
         descr: "Hard Drive for Data Storage and Backup of 256 GB, SATA SSD.",
@@ -98,7 +100,7 @@ const variousAccessories = [
     },
 
     {
-        id: 6,
+        id: 2006,
         name: "Laptop Stand V6.1",
         customer: "customer6",
         descr: "Laptop Stand V6.1, made of durable materials to protect your laptop from overheating and improve your posture while working.",
@@ -108,7 +110,7 @@ const variousAccessories = [
     },
 
     {
-        id: 7,
+        id: 2007,
         name: "Mouse Cabled",
         customer: "customer7",
         descr: "Mouse Cabled, made of durable materials to protect your mouse from wear and tear.",
@@ -118,7 +120,7 @@ const variousAccessories = [
     },
 
     {
-        id: 8,
+        id: 2008,
         name: "Multi Card Reader",
         customer: "customer8",
         descr: "Multi Card Reader to use with different types of memory cards.",
@@ -128,7 +130,7 @@ const variousAccessories = [
     },
 
     {
-        id: 9,
+        id: 2009,
         name: "Multiple USB Port",
         customer: "customer9",
         descr: "Multiple USB Port to connect multiple USB devices to your computer.",
@@ -138,7 +140,7 @@ const variousAccessories = [
     },
 
     {
-        id: 10,
+        id: 2010,
         name: "Multiple USB Port",
         customer: "customer10",
         descr: "Multiple USB Port to connect multiple USB devices to your computer.",
@@ -148,7 +150,7 @@ const variousAccessories = [
     },
 
     {
-        id: 11,
+        id: 2011,
         name: "WIFI USB Adapter",
         customer: "customer11",
         descr: "WIFI USB Adapter to connect your computer to a wireless network.",
@@ -158,7 +160,7 @@ const variousAccessories = [
     },
 
     {
-        id: 12,
+        id: 2012,
         name: "USB to SATA Cable",
         customer: "customer12",
         descr: "USB to SATA Cable to connect your computer to a SATA hard drive.",
@@ -168,7 +170,7 @@ const variousAccessories = [
     },
 
     {
-        id: 13,
+        id: 2013,
         name: "SanDisk Cruzer Blade 16GB",
         customer: "customer13",
         descr: "SanDisk Cruzer Blade 16GB USB Flash Drive, made of durable materials to protect your data from loss and damage.",
@@ -178,7 +180,7 @@ const variousAccessories = [
     },
 
     {
-        id: 14,
+        id: 2014,
         name: "Portable WIFI Hotspot",
         customer: "customer14",
         descr: "Portable WIFI Hotspot to connect your devices to a wireless network.",
@@ -188,7 +190,7 @@ const variousAccessories = [
     },
 
     {
-        id: 15,
+        id: 2015,
         name: "M2 SSD 512GB",
         customer: "customer15",
         descr: "M2 SSD 512GB, made of durable materials to protect your data from loss and damage.",
