@@ -6,25 +6,25 @@ const phoneCases = [
         descr: "Protective Cover for Samsung Galaxy A14 5G/4G Soft Silicone",
         price: 15000,
         inStock: 100,
-        imgSrc: "./images/Accessories/Phone-Cases/1-PhoneCase-flowered-jonas.jpg"
+        imgSrc: "./images/Accessories/Phone-Cases/1-PhoneCase-flowered-jonas.jpg" // try to put two different images source to see the result
     },
     {
         id: 2,
-        name: "phoneCase2",
-        customer: "customer2",
-        descr: "kaiinakakkmnak-jjsjs",
-        price: 22.67,
+        name: "Protective Silicone Cover ",
+        customer: "Jonas-Galerie-Ideal-B6A",
+        descr: "Protective Cover for several phone, including Samsung A16, Tecno Spark40, Redmi 14C",
+        price: 12.000,
         inStock: 5,
-        imgSrc: "./images/Accessories/Phone-Cases/2-SamsungCase-Silicone-Case -- SamsungGalaxy A15 5G CAse.jpg"
+        imgSrc: "./images/Accessories/Phone-Cases/2-PhoneCase-Silicone-Original-Jonas.jpg"
     },
     {
         id: 3,
-        name: "phoneCase3",
-        customer: "customer3",
-        descr: "kaiinakakkmnak-kslirms",
-        price: 40.99,
+        name: "Protective Phone Cover Wallet",
+        customer: "Jonas-Galerie-Ideal-B6A",
+        descr: "Protective Phone Cover, assuring a coverage of 360 degree, with a Magnetic Closure Tab",
+        price: 20.000,
         inStock: 10,
-        imgSrc: "./images/Accessories/Phone-Cases/3-GooglePixelCase--GooglePixel3.jpg"
+        imgSrc: "./images/Accessories/Phone-Cases/3-PhoneCase-Wallet-Jonas.jpg"
     },
     {
         id: 4,
@@ -195,5 +195,17 @@ const variousAccessories = [
         price: 250000,
         inStock: 15,
         imgSrc: "./images/Accessories/various-accessories/15-M2-SSD.jpg"
+    }
+]
+
+const powerAdapter = [
+    {
+     id: 1,
+     name: "Power Adapter 45W",
+     customer: "Jonas-Galerie-Ideal-B6A",
+     descr: "Power Adapter using USB-C Power Deliver, Comes with bundled with a heavy-duty, high-amperage 5A UsB-C to USB-C cable required to achieve full 45w speeds",
+     price: 25.000,
+     inStock: 15,
+     imgSrc: "./images/Accessories/Power-Adapter/1-PowerAdapter-45W-Jonas.jpg" 
     }
 ]
