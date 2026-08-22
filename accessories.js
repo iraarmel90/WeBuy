@@ -1,12 +1,12 @@
 const phoneCases = [
     {
         id: 1,
-        name: "phoneCase1",
-        customer: "customer1",
-        descr: "kaiinakakkmnak",
-        price: 30.99,
-        inStock: 1,
-        imgSrc: "./images/Accessories/Phone-Cases/1-IphoneCase-Silicone-Case-Iphone 15.jpg"
+        name: "Flowered Protective Cover",
+        customer: "Jonas-Galerie-Ideal-B6A",
+        descr: "Protective Cover for Samsung Galaxy A14 5G/4G Soft Silicone",
+        price: 15000,
+        inStock: 100,
+        imgSrc: "./images/Accessories/Phone-Cases/1-PhoneCase-flowered-jonas.jpg"
     },
     {
         id: 2,
