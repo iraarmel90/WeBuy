@@ -2,7 +2,7 @@
 
 const phoneCases = [
     {
-        id: 1000,
+        id: 1,
         name: "phoneCase1",
         customer: "customer1",
         descr: "kaiinakakkmnak",
@@ -11,22 +11,22 @@ const phoneCases = [
         imgSrc: "./images/Accessories/Phone-Cases/1-IphoneCase-Silicone-Case-Iphone 15.jpg"
     },
     {
-        id: 1001,
+        id: 2,
         name: "phoneCase2",
         customer: "customer2",
         descr: "kaiinakakkmnak-jjsjs",
         price: 22.67,
         inStock: 5,
-        imgSrc: "./images/Accessories/Phone-Cases/2-SamsungCase-Silicone-Case -- SamsungGalaxy A15 5G CAse.jpg"
+        imgSrc: "./images/Accessories/Phone-Cases/2-PhoneCase-Silicone-Original-Jonas.jpg"
     },
     {
-        id: 1002,
+        id: 3,
         name: "phoneCase3",
         customer: "customer3",
         descr: "kaiinakakkmnak-kslirms",
         price: 40.99,
         inStock: 10,
-        imgSrc: "./images/Accessories/Phone-Cases/3-GooglePixelCase--GooglePixel3.jpg"
+        imgSrc: "./images/Accessories/Phone-Cases/3-PhoneCase-Wallet-Jonas.jpg"
     },
     {
         id: 1003,
@@ -197,5 +197,17 @@ const variousAccessories = [
         price: 250000,
         inStock: 15,
         imgSrc: "./images/Accessories/various-accessories/15-M2-SSD.jpg"
+    }
+]
+
+const powerAdapter = [
+    {
+     id: 1,
+     name: "Power Adapter 45W",
+     customer: "Jonas-Galerie-Ideal-B6A",
+     descr: "Power Adapter using USB-C Power Deliver, Comes with bundled with a heavy-duty, high-amperage 5A UsB-C to USB-C cable required to achieve full 45w speeds",
+     price: 25.000,
+     inStock: 15,
+     imgSrc: "./images/Accessories/Power-Adapter/1-PowerAdapter-45W-Jonas.jpg" 
     }
 ]
