@@ -239,9 +239,19 @@ nav ul li a:hover::before {
    /* page in preparation -- Start */
 #pageInPreparation {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 2em;
     margin-top: 2em;
     font-weight: bold;
+}
+
+#pageInPreparation p {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 0;
+    font-size: 1em;
+    font-weight: bold;
+    gap: 50px;
 }
 
 .pageInPreparation {
