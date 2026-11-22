@@ -187,7 +187,7 @@ function displayCart() {
             <img src="${item.imgSrc}" alt="${item.name}" width="100" height="100">
             <div class="cart-item-info">
                 <h3>${item.name}</h3>
-                <p>Price: BIF ${item.price.toFixed(2)}</p>
+                <p>Price: BIF ${item.price.toLocaleString()}</p>
                 <div class="quantity-controls">
                     <button onclick="decrementQuantity('${item.id}')">−</button>
                     <span class="quantity">${item.quantity}</span>
@@ -195,14 +195,14 @@ function displayCart() {
                 </div>
             </div>
             <div class="item-total">
-                <p>Subtotal: BIF <span class="item-subtotal">${itemSubtotal.toFixed(2)}</span></p>
+                <p>Subtotal: BIF <span class="item-subtotal">${itemSubtotal.toLocaleString()}</span></p>
                 <button onclick="removeFromCart('${item.id}')" class="remove-btn">Remove</button>
             </div>
         `;
         cartListEl.appendChild(li);
         total += itemSubtotal;
     }
-    if (totalEl) totalEl.textContent = total.toFixed(2);
+    if (totalEl) totalEl.textContent = total.toLocaleString();
     displayTotalItemsInCart();
 }
 
@@ -282,21 +282,27 @@ function sendOrderViaWhatsApp() {
         alert("Your cart is empty.");
         return;
     }
-
-    const orderLines = cart.map((item) => {
-        const subtotal = item.price * item.quantity;
-        return `- ${item.name} x${item.quantity}: BIF ${subtotal.toFixed(2)}`;
-    });
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    const message = [
-        "Hello, I would like to place this order:",
-        "",
-        ...orderLines,
-        "",
-        `Total: BIF ${total.toFixed(2)}`,
-        "Please confirm availability and delivery details."
-    ].join("\\n");
     const whatsappNumber = "25767186158";
+
+    let message = "Hello, Burundi Online Market! I would like to place this order:\n\n";
+    
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        message += `${index + 1}. ${item.name}\n`;
+        message += `   Quantity: ${item.quantity}\n`;
+        message += `   Price: BIF ${item.price.toLocaleString()}\n`;
+        message += `   Subtotal: BIF ${subtotal.toLocaleString()}\n\n`;
+    });
+
+    message += "-----------------------------------------------\n";
+    message += `Total: BIF ${total.toLocaleString()}\n\n`;
+    message += "Please confirm availability and delivery details. Thank you!\n";
+
+    
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
     window.open(whatsappUrl, "_blank", "noopener,noreferrer");

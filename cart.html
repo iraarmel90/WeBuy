@@ -7,6 +7,8 @@
     <title>My Cart Items</title>
 </head>
 <body>
+<span id="pageInPreparation">Please come back later. The website page is under preparation.</span>
+<div class="pageInPreparation">
     <header>
         <!-- Navigation bar -->
         <nav class="navbar">
@@ -31,6 +33,52 @@
     <main>
         <h1>My Cart Items</h1>
         <p>Review the items in your cart and proceed to checkout.</p>
+
+    <div id="customerForm" class="customer-form">
+
+        <h2>Delivery Information</h2>
+
+        <div class="form-group" id="form-group">
+
+            <label for="customerName">Full Name: </label>
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your full name"
+                    required
+                >
+                <br>
+
+            <label for="customerPhone">Telephone Number: </label>
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="e.g. 79 123 456"
+                    required
+                >
+                <br>
+
+            <label for="deliveryLocation">Delivery Location: </label>
+                <input
+                    type="text"
+                    id="deliveryLocation"
+                    placeholder="e.g. Rohero, Bujumbura"
+                    required
+                >
+                <br>
+
+            <label for="orderNotes">Additional Information</label>
+                <textarea
+                    id="orderNotes"
+                    placeholder="Any additional instructions..."
+                ></textarea>
+                <br>
+
+            <button id="confirmOrderBtn">
+                Confirm Order
+            </button>
+        </div>
+    </div>
     <!-- Cart -->
     <div class="cart">
         <h2>My Cart Items</h2>
@@ -55,7 +103,7 @@
             </li>
             --> 
             <p>Total: BIF <span id="total">0.00</span></p>
-            <button id="checkout-btn">Proceed to Checkout</button>
+            <button id="checkout-btn">Order via Whatsapp</button>
     </div>
     <!-- End of Cart -->
     </main>
@@ -64,6 +112,6 @@
     </footer>
     <script src="accessories.js"></script>
     <script src="script.js"></script>
-    
+</div>   
 </body>
 </html>

@@ -237,15 +237,16 @@ nav ul li a:hover::before {
    ======================================== */
 
    /* page in preparation -- Start */
-/* #pageInPreparation {
+#pageInPreparation {
     text-align: center;
     font-size: 1.2em;
     margin-top: 2em;
+    font-weight: bold;
 }
 
 .pageInPreparation {
     display: none
-} */
+} 
 /* page in preparation -- End */
 
 main {
@@ -638,12 +639,17 @@ main a:hover {
     transition: var(--transition);
 }
 
-/* Cart Section */
 
-/* .cart {
-    display: none
+/* ========================================
+   CART
+   ======================================== */  
+.form-group {
+    margin-bottom: 15px;
+    text-align: center;
 }
- */
+
+
+
 /* ====================================
 CONTACT US
 =======================================*/
